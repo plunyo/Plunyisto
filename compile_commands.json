@@ -32,5 +32,73 @@
     "directory": "/home/plunyo/Documents/Coding/Plunyisto",
     "file": "/home/plunyo/Documents/Coding/Plunyisto/src/physics/world/world.c",
     "output": "/home/plunyo/Documents/Coding/Plunyisto/build/physics/world/world.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-g",
+      "-Wall",
+      "-Werror",
+      "-Isrc",
+      "-DDEBUG=1",
+      "-c",
+      "-o",
+      "build/physics/ball/ball.o",
+      "src/physics/ball/ball.c"
+    ],
+    "directory": "/home/plunyo/Documents/Coding/Plunyisto",
+    "file": "/home/plunyo/Documents/Coding/Plunyisto/src/physics/ball/ball.c",
+    "output": "/home/plunyo/Documents/Coding/Plunyisto/build/physics/ball/ball.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-g",
+      "-Wall",
+      "-Werror",
+      "-Isrc",
+      "-DDEBUG=1",
+      "-c",
+      "-o",
+      "build/physics/segment/segment.o",
+      "src/physics/segment/segment.c"
+    ],
+    "directory": "/home/plunyo/Documents/Coding/Plunyisto",
+    "file": "/home/plunyo/Documents/Coding/Plunyisto/src/physics/segment/segment.c",
+    "output": "/home/plunyo/Documents/Coding/Plunyisto/build/physics/segment/segment.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-g",
+      "-Wall",
+      "-Werror",
+      "-Isrc",
+      "-DDEBUG=1",
+      "-c",
+      "-o",
+      "build/physics/body/body.o",
+      "src/physics/body/body.c"
+    ],
+    "directory": "/home/plunyo/Documents/Coding/Plunyisto",
+    "file": "/home/plunyo/Documents/Coding/Plunyisto/src/physics/body/body.c",
+    "output": "/home/plunyo/Documents/Coding/Plunyisto/build/physics/body/body.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-g",
+      "-Wall",
+      "-Werror",
+      "-Isrc",
+      "-DDEBUG=1",
+      "-c",
+      "-o",
+      "build/physics/spring/spring.o",
+      "src/physics/spring/spring.c"
+    ],
+    "directory": "/home/plunyo/Documents/Coding/Plunyisto",
+    "file": "/home/plunyo/Documents/Coding/Plunyisto/src/physics/spring/spring.c",
+    "output": "/home/plunyo/Documents/Coding/Plunyisto/build/physics/spring/spring.o"
   }
 ]
