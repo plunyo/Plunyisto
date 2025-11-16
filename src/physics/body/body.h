@@ -26,6 +26,8 @@ void ResolveBodySegmentCollision(Body* body, const Segment* segment);
 
 void DrawBody(const Body* body);
 
+Vector2 GetBodyCenter(const Body* body);
+
 Body CreateSoftBodyCircle(Vector2 center, int numBalls, float ringRadius, float ballRadius,
                           Vector2 initialVelocity, float springStiffness,
                           bool fullyConnected, bool addCenter);

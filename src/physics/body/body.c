@@ -65,11 +65,33 @@ void ResolveBodyBodyCollision(Body* bodyA, Body* bodyB) {
             float radiusSum = ballA->radius + ballB->radius;
 
             if (distanceSquared < radiusSum * radiusSum) {
-                float distance = sqrtf(distanceSquared);
-                if (distance == 0.0f) distance = 0.0001f;
 
-                //Vector2 collisionNormal = Vector2Scale(difference, 1.0f / distance);
-                //float penetrationDepth = radiusSum - distance;
+                float distance = sqrtf(distanceSquared);
+                if (distance < 0.0001f) distance = 0.0001f;
+
+                Vector2 normal = Vector2Scale(difference, 1.0f / distance);
+                float penetration = radiusSum - distance;
+
+                // position correction (half each because both mass = 1)
+                Vector2 correction = Vector2Scale(normal, penetration * 0.5f);
+
+                ballA->position = Vector2Subtract(ballA->position, correction);
+                ballB->position = Vector2Add(ballB->position, correction);
+
+                // velocity correction
+                Vector2 relativeVel = Vector2Subtract(ballB->velocity, ballA->velocity);
+                float velAlongNormal = Vector2DotProduct(relativeVel, normal);
+
+                if (velAlongNormal > 0.0f) continue;
+
+                float restitution = 0.2f; // tweak if your balls bouncing too crazy
+                float impulseMag = -(1.0f + restitution) * velAlongNormal * 0.5f; 
+                // *0.5f because two masses = 1 each
+
+                Vector2 impulse = Vector2Scale(normal, impulseMag);
+
+                ballA->velocity = Vector2Subtract(ballA->velocity, impulse);
+                ballB->velocity = Vector2Add(ballB->velocity, impulse);
             }
         }
     }
@@ -103,7 +125,6 @@ void ResolveBodySegmentCollision(Body* body, const Segment* segment) {
     }
 }
 
-
 void DrawBody(const Body* body) {
     for (size_t i = 0; i < body->springCount; i++) {
         DrawSpring(&body->springs[i]);
@@ -112,6 +133,20 @@ void DrawBody(const Body* body) {
     for (size_t i = 0; i < body->ballCount; i++) {
         DrawBall(&body->balls[i]);
     }
+}
+
+Vector2 GetBodyCenter(const Body* body) {
+    Vector2 center = { 0.0f, 0.0f };
+
+    if (body->ballCount == 0) return center;
+
+    for (size_t i = 0; i < body->ballCount; i++) {
+        center = Vector2Add(center, body->balls[i].position);
+    }
+
+    center = Vector2Scale(center, 1.0f / (float)body->ballCount);
+
+    return center;
 }
 
 static void addSpringBetween(Body *body, Ball *a, Ball *b, float stiffness) {

@@ -6,7 +6,7 @@
 
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
-#define SUBSTEPS 20
+#define SUBSTEPS 5
 
 int main(int argc, char** argv) {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Plunyisto");
@@ -18,13 +18,13 @@ int main(int argc, char** argv) {
         &world,
         CreateSoftBodyCircle(
             (Vector2){ SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f }, 
-            20, 
+            10, 
             100.0f, 
-            2.5f, 
-            (Vector2){ 1000.0f, 0.0f }, 
             10.0f, 
+            (Vector2){ 1000.0f, 0.0f }, 
+            75.0f, 
             true, 
-            false
+            true
         )
     );
 
