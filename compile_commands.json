@@ -1,0 +1,36 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-g",
+      "-Wall",
+      "-Werror",
+      "-Isrc",
+      "-DDEBUG=1",
+      "-c",
+      "-o",
+      "build/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/plunyo/Documents/Coding/Plunyisto",
+    "file": "/home/plunyo/Documents/Coding/Plunyisto/src/main.c",
+    "output": "/home/plunyo/Documents/Coding/Plunyisto/build/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-g",
+      "-Wall",
+      "-Werror",
+      "-Isrc",
+      "-DDEBUG=1",
+      "-c",
+      "-o",
+      "build/physics/world/world.o",
+      "src/physics/world/world.c"
+    ],
+    "directory": "/home/plunyo/Documents/Coding/Plunyisto",
+    "file": "/home/plunyo/Documents/Coding/Plunyisto/src/physics/world/world.c",
+    "output": "/home/plunyo/Documents/Coding/Plunyisto/build/physics/world/world.o"
+  }
+]
