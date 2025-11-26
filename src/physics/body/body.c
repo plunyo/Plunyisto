@@ -5,6 +5,8 @@
 #include <math.h>
 #include <stdlib.h>
 
+long long int collisionChecks = 0;
+
 Body CreateBody() {
     Body body;
 
@@ -58,6 +60,7 @@ void ResolveBodyBodyCollision(Body* bodyA, Body* bodyB) {
         Ball* ballA = &bodyA->balls[i];
 
         for (int j = 0; j < bodyB->ballCount; j++) {
+            collisionChecks++;
             Ball* ballB = &bodyB->balls[j];
 
             Vector2 difference = Vector2Subtract(ballB->position, ballA->position);
@@ -101,6 +104,7 @@ void ResolveBodySegmentCollision(Body* body, const Segment* segment) {
     Vector2 segDir = Vector2Subtract(segment->end, segment->start);
 
     for (size_t i = 0; i < body->ballCount; i++) {
+        collisionChecks++;
         Ball* ball = &body->balls[i];
 
         Vector2 toBall = Vector2Subtract(ball->position, segment->start);
@@ -265,12 +269,4 @@ Body CreateSoftBodyChain(Vector2 start, Vector2 end, int numBalls, float ballRad
     }
 
     return body;
-}
-
-Body CreateSoftBodyBlob(Vector2 center, int numBalls, float ringRadius, float ballRadius,
-                        Vector2 initialVelocity, float springStiffness) {
-
-    return CreateSoftBodyCircle(center, numBalls, ringRadius, ballRadius,
-                                initialVelocity, springStiffness,
-                                true, true);
 }

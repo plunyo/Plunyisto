@@ -35,9 +35,8 @@ void UpdateBall(Ball* ball, float delta) {
     }
 
     if (grabbedBall == ball) {
-        // optionally add some smoothing if you want
         ball->position = mousePos;
-        ball->velocity = (Vector2){0, 0}; // stop motion while held
+        ball->velocity = Vector2Zero();
         return;
     }
 
