@@ -5,9 +5,15 @@
 #include "physics/body/body.h"
 #include "physics/world/world.h"
 
+<<<<<<< HEAD
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 #define SUBSTEPS 50
+=======
+#define SCREEN_WIDTH 1920
+#define SCREEN_HEIGHT 1080
+#define SUBSTEPS 5
+>>>>>>> 8b31124 (a)
 
 int main(int argc, char** argv) {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Plunyisto");
@@ -18,12 +24,17 @@ int main(int argc, char** argv) {
     AddBodyToWorld(
         &world,
         CreateSoftBodyCircle(
+<<<<<<< HEAD
             (Vector2){ SCREEN_WIDTH / 2.0f, SCREEN_HEIGHT / 2.0f }, 
             12, 
+=======
+            (Vector2){ (SCREEN_WIDTH / 2.0f) - 100.0f, SCREEN_HEIGHT / 2.0f }, 
+            150, 
+>>>>>>> 8b31124 (a)
             100.0f, 
-            10.0f, 
+            20.0f, 
             (Vector2){ 1000.0f, 0.0f }, 
-            75.0f, 
+            5.0f, 
             true, 
             true
         )
@@ -31,6 +42,7 @@ int main(int argc, char** argv) {
 
     AddBodyToWorld(
         &world,
+<<<<<<< HEAD
         CreateSoftBodyChain(
             (Vector2){ (SCREEN_WIDTH / 2.0f) - 300.0f, SCREEN_HEIGHT * 0.75f },
             (Vector2){(SCREEN_WIDTH / 2.0f) + 100.0f, SCREEN_HEIGHT * 0.75f },
@@ -58,6 +70,21 @@ int main(int argc, char** argv) {
         )
     );
 
+=======
+        CreateSoftBodyCircle(
+            (Vector2){ (SCREEN_WIDTH / 2.0f) + 100.0f, SCREEN_HEIGHT / 2.0f }, 
+            150, 
+            100.0f, 
+            20.0f, 
+            (Vector2){ 1000.0f, 0.0f }, 
+            10.0f, 
+            true, 
+            true
+        )
+    );
+
+
+>>>>>>> 8b31124 (a)
     while (!WindowShouldClose()) {
         float delta = GetFrameTime();
 

@@ -20,7 +20,7 @@ void UpdateBall(Ball* ball, float delta) {
     if (!ball) return;
 
     Vector2 mousePos = GetMousePosition();
-    float grabRadius = ball->radius * 2.0f;
+    float grabRadius = 20.0f + (ball->radius * 2.0f);
 
     // grab logic
     if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && grabbedBall == NULL) {
@@ -42,7 +42,7 @@ void UpdateBall(Ball* ball, float delta) {
 
     // normal physics
     ball->velocity = Vector2Add(ball->velocity, Vector2Scale(GRAVITY, delta));
-    float dampingPerSecond = 0.2f;
+    float dampingPerSecond = 0.05f;
     float dampingFactor = powf(dampingPerSecond, delta);
     ball->velocity = Vector2Scale(ball->velocity, dampingFactor);
     ball->position = Vector2Add(ball->position, Vector2Scale(ball->velocity, delta));
